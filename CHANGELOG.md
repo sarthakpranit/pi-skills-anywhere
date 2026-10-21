@@ -11,6 +11,9 @@ Initial release.
 - Bare `/name` tokens and `<skill name="x">` tags expand into the skill's
   full instructions on send, anywhere in the message.
 - Hidden (`disable-model-invocation: true`) skills resolve in every path.
+- Arrow-key navigation keeps the menu selection: only token-changing
+  keystrokes refresh the menu (a refresh rebuilds the list and resets the
+  selection to the first row).
 - Project skills gated on trust; startup hint when Pi's `/skill:*` listing
   would duplicate the menu.
 - Fails soft on incompatible Pi versions: the popup is feature-detected,

@@ -175,8 +175,12 @@ class SkillMenuEditor extends CustomEditor {
         ? before.slice(0, before.length - token[0].length).trim()
         : "";
       if (token && head) {
-        // Mid-text "/token" in progress: (re)show the skill menu.
-        self.requestAutocomplete({ force: false, explicitTab: false });
+        // Only refresh on input that changes the token (single printable
+        // char, backspace). Every refresh snaps the selection back to the
+        // best match, so navigation keys must not refresh.
+        if (data.length === 1 && data !== "\r" && data !== "\x1b") {
+          self.requestAutocomplete({ force: false, explicitTab: false });
+        }
         return;
       }
       // A mid-text skill menu whose token went away (space, dot, slash):
