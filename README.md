@@ -19,7 +19,7 @@ Invoke [Pi](https://pi.dev) skills from anywhere in a prompt.
 ## Install
 
 ```bash
-pi install git:github.com/sarthakpranit/pi-skills-anywhere
+pi install npm:pi-skills-anywhere
 ```
 
 Or try it once without installing:
@@ -56,6 +56,11 @@ your settings itself.
   a path-completion popup in rare cases.
 - Expansion replaces the skill tag or token with the full SKILL.md body;
   the model still chooses to follow it.
+
+## Releases
+
+Push a `v*` tag (`git tag v0.1.1 && git push origin v0.1.1`); CI
+publishes to npm with provenance.
 
 ## Test
 
