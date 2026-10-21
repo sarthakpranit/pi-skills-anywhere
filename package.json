@@ -1,0 +1,25 @@
+{
+  "name": "pi-skills-anywhere",
+  "version": "0.1.0",
+  "description": "Invoke Pi skills from anywhere: /name commands for every skill, a mid-sentence slash popup, and in-place expansion of /name tokens and <skill> tags.",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "coding-agent",
+    "skills",
+    "autocomplete"
+  ],
+  "license": "MIT",
+  "pi": {
+    "extensions": ["./src/skill-tags.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.3.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.3.0"
+  },
+  "scripts": {
+    "test": "bun test/run.ts"
+  }
+}
