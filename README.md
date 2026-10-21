@@ -1,5 +1,7 @@
 # pi-skills-anywhere
 
+![demo](demo/pi-skills-anywhere.gif)
+
 Invoke [Pi](https://pi.dev) skills from anywhere in a prompt.
 
 - **`/name args`** — every discovered skill is a command, listed in the `/`
