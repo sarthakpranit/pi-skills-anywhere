@@ -59,20 +59,27 @@ function parseSkill(filePath: string, project: boolean): Skill | undefined {
 
 /** All discoverable skills, first-found wins on name collisions. */
 function discoverSkills(cwd: string): Map<string, Skill> {
-  const roots: [string, boolean][] = [
-    [join(homedir(), ".pi", "agent", "skills"), false],
-    [join(homedir(), ".agents", "skills"), false],
-  ];
-  let dir = cwd;
-  let prev = "";
-  while (dir !== prev) {
-    prev = dir;
+  const roots: [string, boolean][] = [];
+  const override = process.env.PI_SKILLS_ANYWHERE_ROOTS;
+  if (override) {
+    // Test-only: explicit roots instead of the user/project layout.
+    for (const dir of override.split(":")) roots.push([dir, false]);
+  } else {
     roots.push(
-      [join(dir, ".pi", "skills"), true],
-      [join(dir, ".agents", "skills"), true],
+      [join(homedir(), ".pi", "agent", "skills"), false],
+      [join(homedir(), ".agents", "skills"), false],
     );
-    if (existsSync(join(dir, ".git"))) break;
-    dir = dirname(dir);
+    let dir = cwd;
+    let prev = "";
+    while (dir !== prev) {
+      prev = dir;
+      roots.push(
+        [join(dir, ".pi", "skills"), true],
+        [join(dir, ".agents", "skills"), true],
+      );
+      if (existsSync(join(dir, ".git"))) break;
+      dir = dirname(dir);
+    }
   }
   const byName = new Map<string, Skill>();
   for (const [root, project] of roots) {

@@ -20,6 +20,9 @@ way is the prerequisite for using it.
   package with `pi -e .`.
 - `bun install` fetches the host peer into `node_modules/` so type-checking
   and the tests can resolve it; CI does the same.
+- `test/run.ts` is hermetic: fixture skills via `PI_SKILLS_ANYWHERE_ROOTS`
+  (checked in `discoverSkills`) stand in for real user/project skill dirs;
+  it must never depend on the author's home directory.
 - The mid-sentence popup has no automated coverage — verify it by hand in
   an interactive session (`pi -e .`, type `/` mid-message) before shipping
   changes that touch `SkillMenuEditor`.
