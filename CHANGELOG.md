@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Tag-triggered npm publish workflow with provenance (`.github/workflows/publish.yml`).
+- README: install via npm; document the release flow.
+
 ## 0.1.0
 
 Initial release.
