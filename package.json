@@ -10,8 +10,23 @@
     "autocomplete"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarthakpranit/pi-skills-anywhere.git"
+  },
+  "bugs": "https://github.com/sarthakpranit/pi-skills-anywhere/issues",
+  "homepage": "https://github.com/sarthakpranit/pi-skills-anywhere#readme",
   "pi": {
     "extensions": ["./src/skill-tags.ts"]
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.3.0"
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "^1.3.0"
